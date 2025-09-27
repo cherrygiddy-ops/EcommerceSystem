@@ -30,7 +30,7 @@ public class Product {
     @Column(name ="description")
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)//Eager Loading
+    @ManyToOne(cascade = CascadeType.PERSIST)//Eager Loading
     @JoinColumn(name = "category_id") //this is the foreignKey Column
     @ToString.Exclude
     private Category category;
