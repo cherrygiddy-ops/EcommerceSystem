@@ -12,7 +12,7 @@ import org.mapstruct.MappingTarget;
 
 public interface UserMapper {
 
-//    UserDto toDto (User user);
-//    User toEntity(RegisterUserRequest registerUserRequest);
-//    void updateUser(UpdateUserRequest updateUserRequest, @MappingTarget User user);
+    UserDto toDto (User user);
+    User toEntity(RegisterUserRequest registerUserRequest);
+    void updateUser(UpdateUserRequest updateUserRequest, @MappingTarget User user);
 }

@@ -38,4 +38,10 @@ public class Product {
     @ManyToMany(mappedBy = "wishList") //telling to hibernate who is the owner of the relationship
     @ToString.Exclude//EXCLUDING TAGS from being converted to Tostring because it can form a cycle
     private Set<User> users = new HashSet<>();//user can not have duplicate products
+
+    @OneToMany(mappedBy = "product")
+    @Builder.Default
+    @ToString.Exclude
+    private Set<CartItem> cartItems = new HashSet<>();
+
 }

@@ -51,18 +51,18 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDto> createUser(){
-//            @RequestBody RegisterUserRequest request,
-//            UriComponentsBuilder uriBuilder){
-//       var user= userMapper.toEntity(request);
-//
-//       userRepository.save(user);
-//
-//        var userDto=userMapper.toDto(user);
-//
-//        var uri =uriBuilder.path("/users/{id}").buildAndExpand(userDto.getId()).toUri();
-//        return ResponseEntity.created(uri).body(userDto);
-        return null;
+    public ResponseEntity<UserDto> createUser(
+            @RequestBody RegisterUserRequest request,
+            UriComponentsBuilder uriBuilder){
+       var user= userMapper.toEntity(request);
+
+       userRepository.save(user);
+
+        var userDto=userMapper.toDto(user);
+
+        var uri =uriBuilder.path("/users/{id}").buildAndExpand(userDto.getId()).toUri();
+        return ResponseEntity.created(uri).body(userDto);
+
 
     }
 
@@ -92,16 +92,16 @@ public class UserController {
 
     @PostMapping("/{id}/change-password")
     public ResponseEntity<Void>updatePassword(@PathVariable(name = "id") int id, @RequestBody ChangePasswordRequest request){
-//        var user =userRepository.findById(id).orElse(null);
-//        if (user == null)
-//            return ResponseEntity.notFound().build();
-//        if (!user.getPassword().equals(request.getOldPassword())){
-//            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-//        }
-//        user.setPassword(request.getNewPassword());
-//        userRepository.save(user);
-//
-//        return ResponseEntity.noContent().build();
-        return null;
+        var user =userRepository.findById(id).orElse(null);
+        if (user == null)
+            return ResponseEntity.notFound().build();
+        if (!user.getPassword().equals(request.getOldPassword())){
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+        user.setPassword(request.getNewPassword());
+        userRepository.save(user);
+
+        return ResponseEntity.noContent().build();
+
     }
 }

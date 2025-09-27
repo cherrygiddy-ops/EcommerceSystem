@@ -1,7 +1,7 @@
-ALTER TABLE `store`.`cartitem`
+ALTER TABLE `store`.`cart_item`
 ADD INDEX `fk_cartItem_cart_idx` (`cartId` ASC) VISIBLE;
 ;
-ALTER TABLE `store`.`cartitem`
+ALTER TABLE `store`.`cart_item`
 ADD CONSTRAINT `fk_cartItem_cart`
   FOREIGN KEY (`cartId`)
   REFERENCES `store`.`cart` (`id`)

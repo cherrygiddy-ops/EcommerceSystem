@@ -25,11 +25,9 @@ public class Category {
 
     @OneToMany(mappedBy = "category")
     @Builder.Default
+    @ToString.Exclude
     private Set<Product> products = new HashSet<>();
 
-    public Category(byte categoryId) {
-        this.id =categoryId;
-    }
 
 //    public void addProduct(Product product){
 //        products.add(product);
