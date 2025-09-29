@@ -27,7 +27,8 @@ public class Cart {
     @Column(name = "date_created",insertable = false,updatable = false)
     private LocalDateTime dateCreated;
 
-    @OneToMany(mappedBy = "cart",cascade = CascadeType.MERGE,fetch = FetchType.EAGER)//FOR updating the child since the parent already Exists
+    @OneToMany(mappedBy = "cart",cascade = CascadeType.MERGE,fetch = FetchType.EAGER,orphanRemoval = true)//FOR updating the child since the parent already Exists
+    //orphanRemoval = true -> means that if a child become null removes it
     @Builder.Default
     @ToString.Exclude
     private Set<CartItem> items = new LinkedHashSet<>();
@@ -55,5 +56,12 @@ public class Cart {
    public CartItem filterItem(Long productID){
            return items.stream().filter(p -> p.getProduct().getId().equals(productID)).findFirst().orElse(null);
        }
+  public void deleteItem(Long productId){
+       var cartItem =filterItem(productId);
+       if (cartItem !=null) {
+           items.remove(cartItem);
+           cartItem.setCart(null);
+       }
 
+  }
 }
