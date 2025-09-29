@@ -7,6 +7,9 @@ import com.morrisco.net.eCommerceSystem.dtos.UpdateCartItemRequest;
 import com.morrisco.net.eCommerceSystem.exceptions.CartNotFoundException;
 import com.morrisco.net.eCommerceSystem.exceptions.ProductNotFoundException;
 import com.morrisco.net.eCommerceSystem.services.CartService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,6 +24,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/carts")
 @AllArgsConstructor
+@Tag(name = "Carts")
 public class CartController {
     
     private final CartService cartService;
@@ -41,7 +45,9 @@ public class CartController {
     
 
     @PostMapping("/{cartId}/items")
+    @Operation(summary = "add a Product to Cart")
     public ResponseEntity<CartItemDto>addProductsToCart(
+                           @Parameter(description = "the id of the cart")
                             @PathVariable(name ="cartId" ) UUID cartId,
                              @RequestBody AddItemTOCartRequest request){
      var cartItemDto= cartService.addProductToCart(cartId, request.getProductId());
