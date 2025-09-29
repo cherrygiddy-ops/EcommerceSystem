@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -63,5 +64,8 @@ public class Cart {
            cartItem.setCart(null);
        }
 
+  }
+  public void deleteAllItems(){
+       items.clear();
   }
 }
