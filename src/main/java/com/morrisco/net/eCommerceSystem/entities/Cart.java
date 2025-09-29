@@ -37,4 +37,23 @@ public class Cart {
                .reduce(BigDecimal.ZERO,BigDecimal::add);
    }
 
+   public CartItem addToCart (Product product){
+       var cartItem = filterItem(product.getId());
+       if (cartItem !=null)
+           cartItem .setQuantity(cartItem.getQuantity() +1);
+       else {
+           cartItem = new CartItem();
+           cartItem.setProduct(product);
+           cartItem.setQuantity(1);
+           cartItem.setCart(this);
+
+           items.add(cartItem);
+
+       }
+       return cartItem;
+   }
+   public CartItem filterItem(Long productID){
+           return items.stream().filter(p -> p.getProduct().getId().equals(productID)).findFirst().orElse(null);
+       }
+
 }
