@@ -1,0 +1,52 @@
+Bean Scope
+@Scope(
+1.Singleton -> only one instance of a bean is created per IOC throughout its the entire life cycle
+
+2.Prototype scope -> a new instance is created every time this object is requested from IOC container useful for components that are being
+  used temporarily
+
+3.Request -> a new bean instance  is created for each HTTP Request and destroyed ounce the request is completed useful for storing
+ request of specific data in web applications.
+
+ 4.Session -> a new bean instance  is created for each HTTP Session and destroyed ounce the Session is completed
+ )
+
+ FlyWay library is used to script our database  so that this db can be recreated across different environment and we can version and track changes
+ over time for consistency and reliability
+
+ Lombok library is used to simply code or used to reduce boiler plates code it provide us with annotations and we can use this annotations to
+ instruct intellji to automatically generate getters ,setterrs ,allArgsConstrctor,tostring at compile time
+
+ Understanding Entity State
+ 1.when we create entity using new Key Word then its state is Transient(temporary) then when we call save method of Repository is state
+ translate to Persistence and get added to Persistence Context Container (Working Memory of Hibernate) then hibernate will save that Object in the
+ Database and Database will Assign Id TO THIS Object and Hibernate will store that ID in our Entity so this object will not stay forever in memory
+ when the job is done it will be detached Entity from memory
+ If we have Detached Entity and Make Changes to it then that detached entity will get added to Persistence Context then it will Transition to
+ Persistence state and Hibernate will save the Changes
+ when we try to Delete Entity then that Entity will Transition to Removed State  then Hibernate will remove that entity from db and this entity will became transient again
+
+Authentication Method
+1.Session Based-> a server creates  a session a small piec of memoery in server about the user and sends it over the network inform of a cookie a client stores it in browser so every time during communications a client send a request plus this cookie problem is not scalable for many Users
+2.Token Base authentication a server issues a token to a client and clients uses that token for every communictation with servers
+benefits ->
+     1.stateless require less memory in server
+     2.scalable for many users
+     3. works well for front end apps
+ whats contain in a token
+1.Header -> algo used to generate token and type of Token i.e Jwt
+2.PayLoad ->public information about the user plus issued time
+3.Secret key -> this is the key that always remain in the server and its used to check the authentic of token return back by the user (decoding)
+
+the Use of Filters
+1.Check for Authentication
+2.Log incoming Request
+3.Modify Headers
+4.Block Suspicious Traffic
+
+     Refresh Token         vs                     Access Token
+1.Issued inform of HTTPOnly Cookie           1. return in a Response Body
+2.Not Accessible via JavaScript              2.Accessible via Javascript
+3.much harder to still                       3.Stored in LOcalStorage Easier to Still
+4.Long lived usally 7 d                      4.Short Lived usually 15m or less
+5.Use to Isssue Access token                 5.Used to access protected Endpoints

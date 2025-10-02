@@ -1,11 +1,9 @@
 package com.morrisco.net.eCommerceSystem.controllers;
 
 import com.morrisco.net.eCommerceSystem.dtos.ProductDto;
-import com.morrisco.net.eCommerceSystem.entities.Category;
 import com.morrisco.net.eCommerceSystem.mappers.ProductMapper;
 import com.morrisco.net.eCommerceSystem.repositories.CategoryRepository;
 import com.morrisco.net.eCommerceSystem.repositories.ProductRepository;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

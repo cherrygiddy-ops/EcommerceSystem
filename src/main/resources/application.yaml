@@ -5,5 +5,11 @@ spring:
     url: jdbc:mysql://localhost:3306/store?createDatabaseIfNotExist=true
     username: root
     password: Kimz@9600
+  flyway:
+    ignoreMigrationPatterns: '*:ignored,*:missing,*:future'
   jpa:
     show-sql: true
+  jwt:
+    secret: ${JWT_SECRET}
+    accessTokenExpiration: 900
+    refreshTokenExpiration: 604800

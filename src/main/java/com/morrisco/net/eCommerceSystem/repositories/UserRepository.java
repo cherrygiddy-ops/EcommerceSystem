@@ -1,9 +1,16 @@
 package com.morrisco.net.eCommerceSystem.repositories;
 
 import com.morrisco.net.eCommerceSystem.entities.User;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 public interface UserRepository extends JpaRepository<User, Integer> {
+    boolean existsByEmail(String email);
+    boolean existsByPassword(String password);
+
+    Optional<User> findByEmail(@NotNull(message = "email not null") String email);
 
 //    //@Query("select u.email from User u where u.email = ?1")
 //    @EntityGraph(attributePaths = {"tags","addresses"}) //changing the relationship attributes btwn tags and user to be ager loading

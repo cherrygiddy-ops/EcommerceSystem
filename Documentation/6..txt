@@ -1,0 +1,16 @@
+Mastering Spring Boot: Building APIs
+Building the Login API
+In this exercise, you’ll create a login endpoint that accepts a user’s credentials and
+checks if they’re valid. This is your first step toward implementing authentication.
+For now, we’ll keep things simple—your endpoint should return an empty response with
+the right status to indicate if credentials are correct. We’ll handle JWTs in a later lesson.
+Example Request:
+Example Response:
+• If credentials are invalid, return 401 UNAUTHORIZED.
+• If successful, return 200 OK.
+POST /auth/login
+{
+"email": "user1@domain.com",
+"password": "123456"
+}
+Code with Mosh codewithmosh.com

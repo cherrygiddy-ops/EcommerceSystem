@@ -35,6 +35,10 @@ public class User {
     @Builder.Default //telling builder annotation to include new ArrayList<>(); when building an object
     private List<Addresses> addresses = new ArrayList<>();
 
+    @Column(name = "role")
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
 //    public void addAddress(Addresses address){
 //        addresses.add(address);
 //        address.setUser(this);

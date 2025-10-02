@@ -1,15 +1,11 @@
 package com.morrisco.net.eCommerceSystem.dtos;
 
-import com.morrisco.net.eCommerceSystem.entities.CartItem;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
-
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 @Data
 public class CartDto {
