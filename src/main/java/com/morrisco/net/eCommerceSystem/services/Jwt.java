@@ -20,8 +20,8 @@ public class Jwt {
         return claims.getExpiration().before(new Date());
     }
 
-    public Integer getUserIdFromToken(){
-        return Integer.valueOf(claims.getSubject());
+    public Long getUserIdFromToken(){
+        return Long.valueOf(claims.getSubject());
     }
     public Role getRoleFromToken(){
         return Role.valueOf(claims.get("role",String.class));

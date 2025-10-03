@@ -7,6 +7,7 @@ import com.morrisco.net.eCommerceSystem.dtos.AddItemTOCartRequest;
 import com.morrisco.net.eCommerceSystem.dtos.UpdateCartItemRequest;
 import com.morrisco.net.eCommerceSystem.exceptions.CartNotFoundException;
 import com.morrisco.net.eCommerceSystem.exceptions.ProductNotFoundException;
+import com.morrisco.net.eCommerceSystem.mappers.CartMapper;
 import com.morrisco.net.eCommerceSystem.services.CartService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -29,6 +30,7 @@ import java.util.UUID;
 public class CartController {
     
     private final CartService cartService;
+    private  final CartMapper cartMapper;
 
 
     @GetMapping
@@ -58,8 +60,8 @@ public class CartController {
 
     @GetMapping("/{cartId}")
     public CartDto getCart(@PathVariable(name = "cartId") UUID cartId){
-        return cartService.getCart(cartId);
-
+        var cart= cartService.getCart(cartId);
+       return cartMapper.toDto(cart);
     }
 
     @PutMapping("/{cartId}/items/{productId}")

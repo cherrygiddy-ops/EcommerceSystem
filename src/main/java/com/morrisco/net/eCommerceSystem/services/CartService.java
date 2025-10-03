@@ -46,11 +46,11 @@ public class CartService {
     public   List<CartDto> getAllCarts() {
         return cartRepository.findAll().stream().map(cartMapper::toDto).toList();
     }
-    public CartDto getCart(UUID cartId){
+    public Cart getCart(UUID cartId){
         var cart=cartRepository.getItemsWithCart(cartId).orElse(null);
         if (cart ==null)
             throw  new CartNotFoundException();
-     return cartMapper.toDto(cart);
+     return cart;
     }
 
     public CartItemDto updateCartItem(UUID cartId,Long productID,int quantity){
@@ -82,5 +82,12 @@ public class CartService {
             throw new CartNotFoundException();
         cart.deleteAllItems();
         cartRepository.save(cart);
+    }
+
+    public boolean isEmpty(UUID carId){
+        var cart=cartRepository.getItemsWithCart(carId).orElse(null);
+        if (cart ==null)
+            throw new CartNotFoundException();
+        return cart.getItems().isEmpty();
     }
 }

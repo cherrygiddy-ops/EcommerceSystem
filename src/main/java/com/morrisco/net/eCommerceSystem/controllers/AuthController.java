@@ -60,7 +60,7 @@ public class AuthController {
     @GetMapping("/currentUser")
     public ResponseEntity<UserDto> currentUser (){
     var authentication = SecurityContextHolder.getContext().getAuthentication();
-    var userId =(int)authentication.getPrincipal();
+    var userId =(long)authentication.getPrincipal();
     var user = userRepository.findById(userId).orElse(null);
      if (user==null)
          return ResponseEntity.notFound().build();

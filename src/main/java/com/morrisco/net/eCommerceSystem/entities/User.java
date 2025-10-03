@@ -20,7 +20,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//used to specify how ids are generated i.e primary keys
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false,name = "name")
     private String name;

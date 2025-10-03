@@ -3,11 +3,13 @@ package com.morrisco.net.eCommerceSystem.services;
 import com.morrisco.net.eCommerceSystem.dtos.RegisterUserRequest;
 import com.morrisco.net.eCommerceSystem.dtos.UserDto;
 import com.morrisco.net.eCommerceSystem.entities.Role;
+import com.morrisco.net.eCommerceSystem.entities.User;
 import com.morrisco.net.eCommerceSystem.exceptions.EmailExistsException;
 import com.morrisco.net.eCommerceSystem.mappers.UserMapper;
 import com.morrisco.net.eCommerceSystem.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +40,16 @@ public class UserService  {
         return userRepository.findAll(Sort.by(sortBy)).stream()
                 .map(userMapper::toDto)
                 .toList();
+    }
+
+    public User getUserById (Long userId){
+
+        var user = userRepository.findById(userId).orElse(null);
+
+        if (user ==null)
+            throw new UsernameNotFoundException("user Not Found");
+
+        return user;
     }
 
 

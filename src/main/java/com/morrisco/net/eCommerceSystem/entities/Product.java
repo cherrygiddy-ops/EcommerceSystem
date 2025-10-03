@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Setter
@@ -42,6 +43,9 @@ public class Product {
     @OneToMany(mappedBy = "product")
     @Builder.Default
     @ToString.Exclude
-    private Set<CartItem> cartItems = new HashSet<>();
+    private Set<CartItem> cartItems = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "product",orphanRemoval = true,cascade = CascadeType.MERGE)
+    private Set<OrderItems> orderItems = new LinkedHashSet<>();
 
 }
