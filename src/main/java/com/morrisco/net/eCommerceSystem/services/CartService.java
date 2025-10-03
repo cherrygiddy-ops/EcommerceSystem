@@ -11,6 +11,7 @@ import com.morrisco.net.eCommerceSystem.repositories.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -60,7 +61,7 @@ public class CartService {
         var cartItem = cart.filterItem(productID);
         if (cartItem==null)
             throw new ProductNotFoundException();
-        cartItem.setQuantity(quantity);
+        cartItem.setQuantity(BigDecimal.valueOf(quantity));
         cartRepository.save(cart);
 
       return cartMapper.toDto(cartItem);

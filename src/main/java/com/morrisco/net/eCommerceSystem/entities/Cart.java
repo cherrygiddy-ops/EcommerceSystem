@@ -41,11 +41,11 @@ public class Cart {
    public CartItem addToCart (Product product){
        var cartItem = filterItem(product.getId());
        if (cartItem !=null)
-           cartItem .setQuantity(cartItem.getQuantity() +1);
+           cartItem .setQuantity(cartItem.getQuantity().add(BigDecimal.valueOf(1)));
        else {
            cartItem = new CartItem();
            cartItem.setProduct(product);
-           cartItem.setQuantity(1);
+           cartItem.setQuantity(BigDecimal.valueOf(1));
            cartItem.setCart(this);
 
            items.add(cartItem);

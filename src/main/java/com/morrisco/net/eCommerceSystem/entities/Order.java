@@ -41,5 +41,22 @@ public class Order {
     private Set<OrderItems> orderedItems = new LinkedHashSet<>();
 
 
+    public static Order createOrderFromCart(Cart cart,User customer){
+        var order= new Order();
+        order.setCustomer(customer);
+        order.setStatus(OrderStatus.PENDING);
+        order.setPrice(cart.getTotalPrice());
+
+        cart.getItems().forEach(item->{
+            var orederItem = new OrderItems(
+                    order,
+                    item.getProduct(),
+                    item.getQuantity());
+            order.orderedItems.add(orederItem);
+        });
+
+        return order;
+    }
+
 
 }

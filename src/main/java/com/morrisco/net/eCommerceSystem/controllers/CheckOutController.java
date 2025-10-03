@@ -31,29 +31,11 @@ public class CheckOutController {
             @RequestBody CheckOutRequest request
             ){
 
-//        var jwt = jwtService.parseToken(authHeader);
-//        jwt.isExpired()
-//        var userId =jwt.getUserIdFromToken();
-//       var user= userService.getUserById(userId);
       var cart = service.getCart(request.getCartId());
       if (service.isEmpty(cart.getId()))
           return ResponseEntity.badRequest().body(new ErrorDto("Cart is Empty"));
 
-      var order= new Order();
-      order.setCustomer(authService.getCurentLoggedUser());
-      order.setStatus(OrderStatus.PENDING);
-      order.setPrice(cart.getTotalPrice());
-
-      cart.getItems().forEach(item->{
-          var orederItem = new OrderItems();
-          orederItem.setProduct(item.getProduct());
-          orederItem.setQuantity(BigDecimal.valueOf(item.getQuantity()));
-          orederItem.setOrder(order);
-          orederItem.setUnitPrice(item.getProduct().getPrice());
-          orederItem.setTotalPrice(item.getTotalPrice());
-
-          order.getOrderedItems().add(orederItem);
-      });
+    var order =Order.createOrderFromCart(cart,authService.getCurentLoggedUser());
 
      orderRepository.save(order);
 
