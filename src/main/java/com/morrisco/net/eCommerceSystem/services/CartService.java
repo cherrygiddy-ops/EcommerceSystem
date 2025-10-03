@@ -85,10 +85,10 @@ public class CartService {
         cartRepository.save(cart);
     }
 
-    public boolean isEmpty(UUID carId){
-        var cart=cartRepository.getItemsWithCart(carId).orElse(null);
-        if (cart ==null)
-            throw new CartNotFoundException();
-        return cart.getItems().isEmpty();
-    }
+//    public boolean isEmpty(UUID carId){
+//        var cart=cartRepository.getItemsWithCart(carId).orElse(null);
+//        if (cart ==null)
+//            throw new CartNotFoundException();
+//        return cart.getItems().isEmpty();
+//    }
 }

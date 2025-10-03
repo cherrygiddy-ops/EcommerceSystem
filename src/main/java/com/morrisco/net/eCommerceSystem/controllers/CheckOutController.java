@@ -3,49 +3,28 @@ package com.morrisco.net.eCommerceSystem.controllers;
 import com.morrisco.net.eCommerceSystem.dtos.CheckOutRequest;
 import com.morrisco.net.eCommerceSystem.dtos.CheckoutResponse;
 import com.morrisco.net.eCommerceSystem.dtos.ErrorDto;
-import com.morrisco.net.eCommerceSystem.entities.Order;
-import com.morrisco.net.eCommerceSystem.entities.OrderItems;
-import com.morrisco.net.eCommerceSystem.entities.OrderStatus;
+import com.morrisco.net.eCommerceSystem.exceptions.CartEmptyException;
 import com.morrisco.net.eCommerceSystem.exceptions.CartNotFoundException;
-import com.morrisco.net.eCommerceSystem.repositories.OrderRepository;
-import com.morrisco.net.eCommerceSystem.services.AuthService;
-import com.morrisco.net.eCommerceSystem.services.CartService;
+import com.morrisco.net.eCommerceSystem.services.CheckOutService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.math.BigDecimal;
-import java.util.Map;
 
 @AllArgsConstructor
 @RestController
 @RequestMapping("/checkout")
 public class CheckOutController {
-   private final CartService service;
-   private AuthService authService;
-    private final OrderRepository orderRepository;
-
+    private final CheckOutService service;
     @PostMapping()
-    public ResponseEntity<?>  checkOut(
+    public CheckoutResponse  checkOut(
             @RequestBody CheckOutRequest request
             ){
-
-      var cart = service.getCart(request.getCartId());
-      if (service.isEmpty(cart.getId()))
-          return ResponseEntity.badRequest().body(new ErrorDto("Cart is Empty"));
-
-    var order =Order.createOrderFromCart(cart,authService.getCurentLoggedUser());
-
-     orderRepository.save(order);
-
-     service.clearCart(cart.getId());
-      return ResponseEntity.ok(new CheckoutResponse(order.getId()));
+      return service.checkout(request);
     }
 
-    @ExceptionHandler(CartNotFoundException.class)
-    public ResponseEntity<Map<String,String>> handleCartNotFound(){
-        return  ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error","Cart not available"));
+    @ExceptionHandler({CartNotFoundException.class, CartEmptyException.class})
+    public ResponseEntity<ErrorDto> handleException( Exception ex){
+        return  ResponseEntity.badRequest().body(new ErrorDto(ex.getMessage()));
     }
 
 }
