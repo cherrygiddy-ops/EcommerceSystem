@@ -46,6 +46,6 @@ public class Product {
     private Set<CartItem> cartItems = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "product",orphanRemoval = true,cascade = CascadeType.MERGE)
-    private Set<OrderItems> orderItems = new LinkedHashSet<>();
+    private Set<OrderItem> orderItems = new LinkedHashSet<>();
 
 }

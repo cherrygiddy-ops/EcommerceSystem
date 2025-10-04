@@ -1,11 +1,7 @@
 package com.morrisco.net.eCommerceSystem.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.hibernate.action.internal.OrphanRemovalAction;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -13,7 +9,8 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
-public class OrderItems {
+@ToString
+public class OrderItem {
 
     @Id
     @Column(name = "id")
@@ -32,13 +29,15 @@ public class OrderItems {
 
     @JoinColumn(name = "order_id")
     @ManyToOne()
+    @ToString.Exclude
     private Order order;
 
     @JoinColumn(name = "product_id")
     @ManyToOne()
+    @ToString.Exclude
     private Product product;
 
-    public OrderItems( Order order,Product product,BigDecimal quantity) {
+    public OrderItem(Order order, Product product, BigDecimal quantity) {
         this.unitPrice = product.getPrice();
         this.quantity = quantity;
         this.totalPrice = product.getPrice().multiply(quantity);

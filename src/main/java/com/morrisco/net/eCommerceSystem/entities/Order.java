@@ -1,6 +1,5 @@
 package com.morrisco.net.eCommerceSystem.entities;
 
-import com.morrisco.net.eCommerceSystem.dtos.CartDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,6 +13,7 @@ import java.util.Set;
 @Entity(name = "orders")
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Order {
 
     @Id
@@ -26,33 +26,34 @@ public class Order {
     private OrderStatus status;
 
     @Column(name = "created_at",insertable = false,updatable = false)
-    private LocalDate dateCreated;
+    private LocalDate createdAt;
 
     @Column(name = "total_price")
-    private BigDecimal price;
+    private BigDecimal totalPrice;
 
 
     @ManyToOne()
     @JoinColumn(name = "customer_id")
+    @ToString.Exclude
     private User customer;
 
     @OneToMany(mappedBy = "order",orphanRemoval = true,cascade = CascadeType.PERSIST)
     @ToString.Exclude
-    private Set<OrderItems> orderedItems = new LinkedHashSet<>();
+    private Set<OrderItem> items = new LinkedHashSet<>();
 
 
     public static Order createOrderFromCart(Cart cart,User customer){
         var order= new Order();
         order.setCustomer(customer);
         order.setStatus(OrderStatus.PENDING);
-        order.setPrice(cart.getTotalPrice());
+        order.setTotalPrice(cart.getTotalPrice());
 
         cart.getItems().forEach(item->{
-            var orederItem = new OrderItems(
+            var orderItem = new OrderItem(
                     order,
                     item.getProduct(),
                     item.getQuantity());
-            order.orderedItems.add(orederItem);
+            order.items.add(orderItem);
         });
 
         return order;
