@@ -1,6 +1,7 @@
 package com.morrisco.net.eCommerceSystem.services;
 
 import com.morrisco.net.eCommerceSystem.dtos.OrderDto;
+import com.morrisco.net.eCommerceSystem.exceptions.OrderNotFoundException;
 import com.morrisco.net.eCommerceSystem.mappers.OrderMapper;
 import com.morrisco.net.eCommerceSystem.repositories.OrderRepository;
 import lombok.AllArgsConstructor;
@@ -19,5 +20,15 @@ public class OrderService {
         var user=authService.getCurentLoggedUser();
         var orders= orderRepository.findByCustomer(user);
         return orders.stream().map(mapper::toDto).toList();
+    }
+
+    public OrderDto getOrder(Long orderId)  {
+        var user=authService.getCurentLoggedUser();
+        var orders= orderRepository.findByCustomer(user);
+        var order=orders.stream().filter(o -> o.getId().equals(orderId)).findFirst().orElse(null);
+
+        if (order ==null)
+            throw new OrderNotFoundException();
+        return mapper.toDto(order);
     }
 }
