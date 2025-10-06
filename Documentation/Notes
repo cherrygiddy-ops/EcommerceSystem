@@ -50,3 +50,9 @@ the Use of Filters
 3.much harder to still                       3.Stored in LOcalStorage Easier to Still
 4.Long lived usally 7 d                      4.Short Lived usually 15m or less
 5.Use to Isssue Access token                 5.Used to access protected Endpoints
+
+Reason for Stripe Exceptions
+1.Invalid Api Key
+2.Network Issues;
+3.Bad Request(-ve amounts sends to stripe)
+4.Stripe service Down

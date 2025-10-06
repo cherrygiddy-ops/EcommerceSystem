@@ -37,7 +37,7 @@ public class Order {
     @ToString.Exclude
     private User customer;
 
-    @OneToMany(mappedBy = "order",orphanRemoval = true,cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "order",orphanRemoval = true,cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
     @ToString.Exclude
     private Set<OrderItem> items = new LinkedHashSet<>();
 
