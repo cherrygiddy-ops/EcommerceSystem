@@ -20,11 +20,13 @@ public class StripePaymentGateway implements PaymentGateway{
 
     @Override
     public CheckOutSession createCheckoutSession(Order order) {
+        //creating a session
         try {
             var builder = SessionCreateParams.builder()
                     .setMode(SessionCreateParams.Mode.PAYMENT)
                     .setSuccessUrl(websiteUrl + "/checkout-session?orderId =" + order.getId())
-                    .setCancelUrl(websiteUrl + "/checkout-cancel");
+                    .setCancelUrl(websiteUrl + "/checkout-cancel")
+                    .putMetadata("order_id",order.getId().toString());
             order.getItems().forEach(item -> {
                         var lineItem = createLineItem(item);
                         builder.addLineItem(lineItem);
