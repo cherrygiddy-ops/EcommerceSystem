@@ -1,22 +1,12 @@
 spring:
   application:
     name: eCommerceSystem
-  datasource :
-    url: jdbc:mysql://localhost:3306/store?createDatabaseIfNotExist=true
-    username: root
-    password: Kimz@9600
-  flyway:
-    ignoreMigrationPatterns: '*:ignored,*:missing,*:future'
-  jpa:
-    show-sql: true
   jwt:
     secret: ${JWT_SECRET}
     accessTokenExpiration: 86400
     refreshTokenExpiration: 604800
-
+  profiles:
+    active: dev
 stripe :
   secretKey : ${STRIPE_SECRET_KEY}
   webhooksecretkey: ${STRIPE_WEBHOOK_SECRET_KEY}
-
-
-websiteUrl : http://localhost:4040

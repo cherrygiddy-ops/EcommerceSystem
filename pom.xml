@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.morrisco.net</groupId>
 	<artifactId>eCommerceSystem</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>eCommerceSystem</name>
 	<description>Online Shopping System</description>
 	<url/>
@@ -170,15 +170,12 @@
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.11.0</version> <!-- Use latest stable -->
         <configuration>
-            <source>23</source>
-            <target>23</target>
             <annotationProcessorPaths>
                 <path>
                     <groupId>org.projectlombok</groupId>
                     <artifactId>lombok</artifactId>
-                    <version>1.18.40</version>
+                    <version>${lombok.version}</version>
                 </path>
                 <path>
                     <groupId>org.mapstruct</groupId>
@@ -186,10 +183,8 @@
                     <version>1.6.3</version>
                 </path>
             </annotationProcessorPaths>
-            <compilerArgs>--enable-preview</compilerArgs>
         </configuration>
     </plugin>
-
 
 </plugins>
 </build>
