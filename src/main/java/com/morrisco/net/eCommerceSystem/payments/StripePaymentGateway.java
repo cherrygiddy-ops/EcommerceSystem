@@ -1,12 +1,16 @@
 package com.morrisco.net.eCommerceSystem.payments;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.morrisco.net.eCommerceSystem.orders.Order;
 import com.morrisco.net.eCommerceSystem.orders.OrderItem;
 import com.stripe.exception.SignatureVerificationException;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Event;
 import com.stripe.model.PaymentIntent;
+import com.stripe.model.StripeObject;
 import com.stripe.model.checkout.Session;
+import com.stripe.net.ApiResource;
 import com.stripe.net.Webhook;
 import com.stripe.param.checkout.SessionCreateParams;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,30 +53,39 @@ public class StripePaymentGateway implements PaymentGateway{
 
     @Override
     public Optional<PaymentResults> parseWebHookResults(WebHookRequest request) {
+
         try {
-            var payload = request.getPayload();
-            var signature = request.getSignature().get("stripe-signature");
-            var event = Webhook.constructEvent(payload, signature, weBhookSecretKey);
+            String payload = request.getPayload();
+            String signature = request.getSignature().get("stripe-signature");
+
+            Event event = Webhook.constructEvent(payload, signature, weBhookSecretKey);
+            String orderId = extractOrderIdFromPaymentIntent(payload);
+
+            System.out.println("✅ Extracted order_id: " + orderId);
 
             return switch (event.getType()) {
                 case "payment_intent.succeeded" ->
-                        Optional.of(new PaymentResults(extractOrderIdFromEvent(event), PaymentStatus.PAID));
-
+                        Optional.of(new PaymentResults(Long.valueOf(orderId), PaymentStatus.PAID));
                 case "payment_intent.payment_failed" ->
-                        Optional.of(new PaymentResults(extractOrderIdFromEvent(event), PaymentStatus.FAILED));
-
+                        Optional.of(new PaymentResults(Long.valueOf(orderId), PaymentStatus.FAILED));
                 default -> Optional.empty();
             };
+
         } catch (SignatureVerificationException e) {
-            throw  new PaymentException("invalid signature");
+            throw new PaymentException("invalid signature");
         }
     }
 
-    private Long extractOrderIdFromEvent (Event event){
-        var stripeObjects =event.getDataObjectDeserializer().getObject().orElseThrow(()->new PaymentException("Could not deserialzed Stripe Event.Check the SDK version or the API "));
-        var paymentIntent =(PaymentIntent)stripeObjects;
-        return Long.valueOf(paymentIntent.getMetadata().get("order_id"));
+
+
+    public static String extractOrderIdFromPaymentIntent(String payload) {
+        JsonObject root = JsonParser.parseString(payload).getAsJsonObject();
+        JsonObject dataObject = root.getAsJsonObject("data").getAsJsonObject("object");
+
+        PaymentIntent intent = ApiResource.GSON.fromJson(dataObject, PaymentIntent.class);
+        return intent.getMetadata().get("order_id");
     }
+
 
     private SessionCreateParams.LineItem createLineItem(OrderItem item) {
         return SessionCreateParams.LineItem.builder()

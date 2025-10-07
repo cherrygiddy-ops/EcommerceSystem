@@ -2,6 +2,7 @@ package com.morrisco.net.eCommerceSystem.auth.jwt;
 
 import com.morrisco.net.eCommerceSystem.auth.AuthService;
 import com.morrisco.net.eCommerceSystem.users.Role;
+import com.morrisco.net.eCommerceSystem.users.UserDetailsServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +26,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @AllArgsConstructor
 public class SecurityConfig {
-    private final AuthService authService;
+    private final UserDetailsServiceImpl userDetailsService;
     private JwtAuthenticationFilter filter;
     //security Filter chain defines how HTTP Request are Secured
     @Bean
@@ -68,7 +69,7 @@ public class SecurityConfig {
     public AuthenticationProvider authenticationProvider (){
         var provider = new DaoAuthenticationProvider();
         provider.setPasswordEncoder(passwordEncoder());
-        provider.setUserDetailsService(authService);
+        provider.setUserDetailsService(userDetailsService);
        return provider;
   }
 
