@@ -1,6 +1,7 @@
-package com.morrisco.net.eCommerceSystem.entities;
+package com.morrisco.net.eCommerceSystem.carts;
 
 
+import com.morrisco.net.eCommerceSystem.products.Product;
 import jakarta.persistence.*;
 import lombok.*;
 

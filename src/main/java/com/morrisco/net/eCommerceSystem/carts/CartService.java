@@ -1,13 +1,7 @@
-package com.morrisco.net.eCommerceSystem.services;
+package com.morrisco.net.eCommerceSystem.carts;
 
-import com.morrisco.net.eCommerceSystem.dtos.CartDto;
-import com.morrisco.net.eCommerceSystem.dtos.CartItemDto;
-import com.morrisco.net.eCommerceSystem.entities.Cart;
-import com.morrisco.net.eCommerceSystem.exceptions.CartNotFoundException;
-import com.morrisco.net.eCommerceSystem.exceptions.ProductNotFoundException;
-import com.morrisco.net.eCommerceSystem.mappers.CartMapper;
-import com.morrisco.net.eCommerceSystem.repositories.CartRepository;
-import com.morrisco.net.eCommerceSystem.repositories.ProductRepository;
+import com.morrisco.net.eCommerceSystem.products.ProductNotFoundException;
+import com.morrisco.net.eCommerceSystem.products.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,14 +1,7 @@
-package com.morrisco.net.eCommerceSystem.controllers;
+package com.morrisco.net.eCommerceSystem.carts;
 
 
-import com.morrisco.net.eCommerceSystem.dtos.CartDto;
-import com.morrisco.net.eCommerceSystem.dtos.CartItemDto;
-import com.morrisco.net.eCommerceSystem.dtos.AddItemTOCartRequest;
-import com.morrisco.net.eCommerceSystem.dtos.UpdateCartItemRequest;
-import com.morrisco.net.eCommerceSystem.exceptions.CartNotFoundException;
-import com.morrisco.net.eCommerceSystem.exceptions.ProductNotFoundException;
-import com.morrisco.net.eCommerceSystem.mappers.CartMapper;
-import com.morrisco.net.eCommerceSystem.services.CartService;
+import com.morrisco.net.eCommerceSystem.products.ProductNotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;

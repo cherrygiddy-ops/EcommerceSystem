@@ -1,9 +1,5 @@
-package com.morrisco.net.eCommerceSystem.mappers;
+package com.morrisco.net.eCommerceSystem.carts;
 
-import com.morrisco.net.eCommerceSystem.dtos.CartDto;
-import com.morrisco.net.eCommerceSystem.dtos.CartItemDto;
-import com.morrisco.net.eCommerceSystem.entities.Cart;
-import com.morrisco.net.eCommerceSystem.entities.CartItem;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

@@ -1,7 +1,5 @@
-package com.morrisco.net.eCommerceSystem.repositories;
+package com.morrisco.net.eCommerceSystem.carts;
 
-import com.morrisco.net.eCommerceSystem.entities.Cart;
-import com.morrisco.net.eCommerceSystem.entities.CartItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

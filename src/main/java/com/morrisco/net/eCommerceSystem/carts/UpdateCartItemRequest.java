@@ -1,4 +1,4 @@
-package com.morrisco.net.eCommerceSystem.dtos;
+package com.morrisco.net.eCommerceSystem.carts;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
