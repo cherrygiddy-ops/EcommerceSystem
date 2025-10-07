@@ -1,11 +1,9 @@
-package com.morrisco.net.eCommerceSystem.config;
+package com.morrisco.net.eCommerceSystem.payments;
 
 import com.stripe.Stripe;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-
-import javax.crypto.SecretKey;
 
 @Configuration
 public class StripeConfig {

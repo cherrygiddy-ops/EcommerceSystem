@@ -1,4 +1,4 @@
-package com.morrisco.net.eCommerceSystem.exceptions;
+package com.morrisco.net.eCommerceSystem.payments;
 
 import lombok.NoArgsConstructor;
 

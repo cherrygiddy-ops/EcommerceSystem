@@ -1,4 +1,4 @@
-package com.morrisco.net.eCommerceSystem.services;
+package com.morrisco.net.eCommerceSystem.payments;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

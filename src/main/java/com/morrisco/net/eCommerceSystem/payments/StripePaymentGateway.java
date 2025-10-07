@@ -1,9 +1,8 @@
-package com.morrisco.net.eCommerceSystem.services;
+package com.morrisco.net.eCommerceSystem.payments;
 
 import com.morrisco.net.eCommerceSystem.entities.Order;
 import com.morrisco.net.eCommerceSystem.entities.OrderItem;
 import com.morrisco.net.eCommerceSystem.entities.PaymentStatus;
-import com.morrisco.net.eCommerceSystem.exceptions.PaymentException;
 import com.stripe.exception.SignatureVerificationException;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Event;
@@ -12,7 +11,6 @@ import com.stripe.model.checkout.Session;
 import com.stripe.net.Webhook;
 import com.stripe.param.checkout.SessionCreateParams;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

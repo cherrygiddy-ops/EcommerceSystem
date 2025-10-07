@@ -1,20 +1,13 @@
-package com.morrisco.net.eCommerceSystem.services;
+package com.morrisco.net.eCommerceSystem.payments;
 
-import com.morrisco.net.eCommerceSystem.dtos.CheckOutRequest;
-import com.morrisco.net.eCommerceSystem.dtos.CheckoutResponse;
 import com.morrisco.net.eCommerceSystem.entities.Order;
-import com.morrisco.net.eCommerceSystem.entities.PaymentStatus;
 import com.morrisco.net.eCommerceSystem.exceptions.CartEmptyException;
 import com.morrisco.net.eCommerceSystem.exceptions.CartNotFoundException;
-import com.morrisco.net.eCommerceSystem.exceptions.PaymentException;
 import com.morrisco.net.eCommerceSystem.repositories.OrderRepository;
-import com.stripe.exception.SignatureVerificationException;
-import com.stripe.model.PaymentIntent;
-import com.stripe.net.Webhook;
+import com.morrisco.net.eCommerceSystem.services.AuthService;
+import com.morrisco.net.eCommerceSystem.services.CartService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 
