@@ -3,4 +3,5 @@ spring:
     url: ${SPRING_DATASOURCE_URL}
   flyway:
   repair : true
+  ignoreMigrationPatterns: '*:ignored,*:missing,*:future'
 websiteUrl : https://ecommerce.com
