@@ -1,8 +1,6 @@
-package com.morrisco.net.eCommerceSystem.repositories;
+package com.morrisco.net.eCommerceSystem.products;
 
 
-import com.morrisco.net.eCommerceSystem.entities.Category;
-import com.morrisco.net.eCommerceSystem.entities.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;

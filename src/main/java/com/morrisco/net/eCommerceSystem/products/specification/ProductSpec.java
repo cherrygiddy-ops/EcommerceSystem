@@ -1,7 +1,7 @@
-package com.morrisco.net.eCommerceSystem.repositories.specification;
+package com.morrisco.net.eCommerceSystem.products.specification;
 
-import com.morrisco.net.eCommerceSystem.entities.Category;
-import com.morrisco.net.eCommerceSystem.entities.Product;
+import com.morrisco.net.eCommerceSystem.products.Category;
+import com.morrisco.net.eCommerceSystem.products.Product;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;

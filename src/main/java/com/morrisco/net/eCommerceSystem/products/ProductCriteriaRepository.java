@@ -1,9 +1,6 @@
-package com.morrisco.net.eCommerceSystem.repositories;
+package com.morrisco.net.eCommerceSystem.products;
 
 
-
-import com.morrisco.net.eCommerceSystem.entities.Category;
-import com.morrisco.net.eCommerceSystem.entities.Product;
 
 import java.math.BigDecimal;
 import java.util.List;

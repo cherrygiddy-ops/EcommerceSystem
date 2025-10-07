@@ -1,6 +1,5 @@
-package com.morrisco.net.eCommerceSystem.repositories;
+package com.morrisco.net.eCommerceSystem.products;
 
-import com.morrisco.net.eCommerceSystem.entities.Category;
 import org.springframework.data.repository.CrudRepository;
 
 public interface CategoryRepository extends CrudRepository<Category, Byte> {

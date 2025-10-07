@@ -1,8 +1,6 @@
-package com.morrisco.net.eCommerceSystem.mappers;
+package com.morrisco.net.eCommerceSystem.products;
 
 
-import com.morrisco.net.eCommerceSystem.dtos.ProductDto;
-import com.morrisco.net.eCommerceSystem.entities.Product;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;

@@ -1,7 +1,5 @@
-package com.morrisco.net.eCommerceSystem.repositories;
+package com.morrisco.net.eCommerceSystem.products;
 
-import com.morrisco.net.eCommerceSystem.entities.Category;
-import com.morrisco.net.eCommerceSystem.entities.Product;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.CriteriaBuilder;
