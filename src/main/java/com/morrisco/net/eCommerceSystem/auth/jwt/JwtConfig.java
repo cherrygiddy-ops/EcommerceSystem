@@ -1,4 +1,4 @@
-package com.morrisco.net.eCommerceSystem.config;
+package com.morrisco.net.eCommerceSystem.auth.jwt;
 
 import io.jsonwebtoken.security.Keys;
 import lombok.Data;

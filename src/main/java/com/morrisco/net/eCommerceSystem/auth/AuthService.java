@@ -1,9 +1,8 @@
-package com.morrisco.net.eCommerceSystem.services;
+package com.morrisco.net.eCommerceSystem.auth;
 
-import com.morrisco.net.eCommerceSystem.repositories.UserRepository;
+import com.morrisco.net.eCommerceSystem.users.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import com.morrisco.net.eCommerceSystem.entities.User;
+import com.morrisco.net.eCommerceSystem.users.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

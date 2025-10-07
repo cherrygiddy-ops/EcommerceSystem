@@ -1,6 +1,6 @@
-package com.morrisco.net.eCommerceSystem.services;
+package com.morrisco.net.eCommerceSystem.auth.jwt;
 
-import com.morrisco.net.eCommerceSystem.entities.Role;
+import com.morrisco.net.eCommerceSystem.users.Role;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import lombok.AllArgsConstructor;

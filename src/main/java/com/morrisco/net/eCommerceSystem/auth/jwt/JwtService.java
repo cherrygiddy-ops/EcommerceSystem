@@ -1,7 +1,6 @@
-package com.morrisco.net.eCommerceSystem.services;
+package com.morrisco.net.eCommerceSystem.auth.jwt;
 
-import com.morrisco.net.eCommerceSystem.config.JwtConfig;
-import com.morrisco.net.eCommerceSystem.entities.User;
+import com.morrisco.net.eCommerceSystem.users.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;

@@ -1,4 +1,4 @@
-package com.morrisco.net.eCommerceSystem.dtos;
+package com.morrisco.net.eCommerceSystem.auth;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

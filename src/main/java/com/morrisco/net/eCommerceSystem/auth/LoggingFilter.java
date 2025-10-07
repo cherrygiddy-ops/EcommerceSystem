@@ -1,4 +1,4 @@
-package com.morrisco.net.eCommerceSystem.filter;
+package com.morrisco.net.eCommerceSystem.auth;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

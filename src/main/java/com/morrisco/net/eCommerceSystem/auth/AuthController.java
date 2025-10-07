@@ -1,12 +1,11 @@
-package com.morrisco.net.eCommerceSystem.controllers;
+package com.morrisco.net.eCommerceSystem.auth;
 
-import com.morrisco.net.eCommerceSystem.config.JwtConfig;
-import com.morrisco.net.eCommerceSystem.dtos.JwtResponse;
-import com.morrisco.net.eCommerceSystem.dtos.LoginRequest;
-import com.morrisco.net.eCommerceSystem.dtos.UserDto;
-import com.morrisco.net.eCommerceSystem.mappers.UserMapper;
-import com.morrisco.net.eCommerceSystem.repositories.UserRepository;
-import com.morrisco.net.eCommerceSystem.services.JwtService;
+import com.morrisco.net.eCommerceSystem.auth.jwt.JwtConfig;
+import com.morrisco.net.eCommerceSystem.auth.jwt.JwtResponse;
+import com.morrisco.net.eCommerceSystem.auth.jwt.JwtService;
+import com.morrisco.net.eCommerceSystem.users.UserDto;
+import com.morrisco.net.eCommerceSystem.users.UserMapper;
+import com.morrisco.net.eCommerceSystem.users.UserRepository;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;

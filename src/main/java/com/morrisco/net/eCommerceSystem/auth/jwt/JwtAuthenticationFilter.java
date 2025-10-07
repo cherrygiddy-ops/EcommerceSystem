@@ -1,6 +1,5 @@
-package com.morrisco.net.eCommerceSystem.filter;
+package com.morrisco.net.eCommerceSystem.auth.jwt;
 
-import com.morrisco.net.eCommerceSystem.services.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

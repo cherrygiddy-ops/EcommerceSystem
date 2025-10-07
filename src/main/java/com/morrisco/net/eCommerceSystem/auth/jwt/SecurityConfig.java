@@ -1,8 +1,7 @@
-package com.morrisco.net.eCommerceSystem.config;
+package com.morrisco.net.eCommerceSystem.auth.jwt;
 
-import com.morrisco.net.eCommerceSystem.entities.Role;
-import com.morrisco.net.eCommerceSystem.filter.JwtAuthenticationFilter;
-import com.morrisco.net.eCommerceSystem.services.AuthService;
+import com.morrisco.net.eCommerceSystem.auth.AuthService;
+import com.morrisco.net.eCommerceSystem.users.Role;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
