@@ -1,4 +1,4 @@
-package com.morrisco.net.eCommerceSystem.dtos;
+package com.morrisco.net.eCommerceSystem.users;
 
 
 import jakarta.validation.constraints.NotBlank;

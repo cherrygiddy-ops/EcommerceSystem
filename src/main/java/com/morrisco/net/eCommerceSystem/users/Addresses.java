@@ -1,4 +1,4 @@
-package com.morrisco.net.eCommerceSystem.entities;
+package com.morrisco.net.eCommerceSystem.users;
 
 
 import jakarta.persistence.*;

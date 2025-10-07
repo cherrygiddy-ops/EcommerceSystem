@@ -1,6 +1,5 @@
-package com.morrisco.net.eCommerceSystem.repositories;
+package com.morrisco.net.eCommerceSystem.users;
 
-import com.morrisco.net.eCommerceSystem.entities.Addresses;
 import org.springframework.data.repository.CrudRepository;
 
 public interface AddressesRepository extends CrudRepository<Addresses, Integer> {

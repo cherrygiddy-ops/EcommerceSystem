@@ -1,7 +1,6 @@
-package com.morrisco.net.eCommerceSystem.repositories;
+package com.morrisco.net.eCommerceSystem.users;
 
 
-import com.morrisco.net.eCommerceSystem.entities.Profile;
 import org.springframework.data.repository.CrudRepository;
 
 public interface ProfileRepository extends CrudRepository<Profile, Integer> {

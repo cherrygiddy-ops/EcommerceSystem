@@ -1,4 +1,4 @@
-package com.morrisco.net.eCommerceSystem.validation;
+package com.morrisco.net.eCommerceSystem.users;
 
 import com.morrisco.net.eCommerceSystem.dtos.ErrorDto;
 import org.springframework.http.ResponseEntity;

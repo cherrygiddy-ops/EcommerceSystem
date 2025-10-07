@@ -1,10 +1,6 @@
-package com.morrisco.net.eCommerceSystem.mappers;
+package com.morrisco.net.eCommerceSystem.users;
 
 
-import com.morrisco.net.eCommerceSystem.dtos.RegisterUserRequest;
-import com.morrisco.net.eCommerceSystem.dtos.UpdateUserRequest;
-import com.morrisco.net.eCommerceSystem.dtos.UserDto;
-import com.morrisco.net.eCommerceSystem.entities.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 

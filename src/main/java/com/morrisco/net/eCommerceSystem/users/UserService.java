@@ -1,12 +1,5 @@
-package com.morrisco.net.eCommerceSystem.services;
+package com.morrisco.net.eCommerceSystem.users;
 
-import com.morrisco.net.eCommerceSystem.dtos.RegisterUserRequest;
-import com.morrisco.net.eCommerceSystem.dtos.UserDto;
-import com.morrisco.net.eCommerceSystem.entities.Role;
-import com.morrisco.net.eCommerceSystem.entities.User;
-import com.morrisco.net.eCommerceSystem.exceptions.EmailExistsException;
-import com.morrisco.net.eCommerceSystem.mappers.UserMapper;
-import com.morrisco.net.eCommerceSystem.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

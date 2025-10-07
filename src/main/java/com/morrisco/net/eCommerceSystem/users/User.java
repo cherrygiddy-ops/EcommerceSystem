@@ -1,5 +1,7 @@
-package com.morrisco.net.eCommerceSystem.entities;
+package com.morrisco.net.eCommerceSystem.users;
 
+import com.morrisco.net.eCommerceSystem.products.Product;
+import com.morrisco.net.eCommerceSystem.entities.Tag;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;

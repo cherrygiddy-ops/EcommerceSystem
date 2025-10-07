@@ -1,6 +1,5 @@
-package com.morrisco.net.eCommerceSystem.repositories;
+package com.morrisco.net.eCommerceSystem.users;
 
-import com.morrisco.net.eCommerceSystem.entities.User;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,13 +1,5 @@
-package com.morrisco.net.eCommerceSystem.controllers;
+package com.morrisco.net.eCommerceSystem.users;
 
-import com.morrisco.net.eCommerceSystem.dtos.ChangePasswordRequest;
-import com.morrisco.net.eCommerceSystem.dtos.RegisterUserRequest;
-import com.morrisco.net.eCommerceSystem.dtos.UpdateUserRequest;
-import com.morrisco.net.eCommerceSystem.dtos.UserDto;
-import com.morrisco.net.eCommerceSystem.exceptions.EmailExistsException;
-import com.morrisco.net.eCommerceSystem.mappers.UserMapper;
-import com.morrisco.net.eCommerceSystem.repositories.UserRepository;
-import com.morrisco.net.eCommerceSystem.services.UserService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
