@@ -1,4 +1,4 @@
-package com.morrisco.net.eCommerceSystem.controllers;
+package com.morrisco.net.eCommerceSystem.admin;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
