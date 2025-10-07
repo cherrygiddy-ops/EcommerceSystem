@@ -1,6 +1,6 @@
 package com.morrisco.net.eCommerceSystem.payments;
 
-import com.morrisco.net.eCommerceSystem.entities.Order;
+import com.morrisco.net.eCommerceSystem.orders.Order;
 
 import java.util.Optional;
 

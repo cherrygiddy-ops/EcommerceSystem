@@ -1,8 +1,7 @@
 package com.morrisco.net.eCommerceSystem.payments;
 
-import com.morrisco.net.eCommerceSystem.entities.Order;
-import com.morrisco.net.eCommerceSystem.entities.OrderItem;
-import com.morrisco.net.eCommerceSystem.entities.PaymentStatus;
+import com.morrisco.net.eCommerceSystem.orders.Order;
+import com.morrisco.net.eCommerceSystem.orders.OrderItem;
 import com.stripe.exception.SignatureVerificationException;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Event;

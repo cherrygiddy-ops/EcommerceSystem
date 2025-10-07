@@ -1,11 +1,11 @@
 package com.morrisco.net.eCommerceSystem.payments;
 
-import com.morrisco.net.eCommerceSystem.entities.Order;
-import com.morrisco.net.eCommerceSystem.exceptions.CartEmptyException;
-import com.morrisco.net.eCommerceSystem.exceptions.CartNotFoundException;
-import com.morrisco.net.eCommerceSystem.repositories.OrderRepository;
-import com.morrisco.net.eCommerceSystem.services.AuthService;
-import com.morrisco.net.eCommerceSystem.services.CartService;
+import com.morrisco.net.eCommerceSystem.orders.Order;
+import com.morrisco.net.eCommerceSystem.carts.CartEmptyException;
+import com.morrisco.net.eCommerceSystem.carts.CartNotFoundException;
+import com.morrisco.net.eCommerceSystem.orders.OrderRepository;
+import com.morrisco.net.eCommerceSystem.auth.AuthService;
+import com.morrisco.net.eCommerceSystem.carts.CartService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.morrisco.net.eCommerceSystem.auth.jwt;
+package com.morrisco.net.eCommerceSystem.auth;
 
 
 import com.morrisco.net.eCommerceSystem.common.SecurityRules;

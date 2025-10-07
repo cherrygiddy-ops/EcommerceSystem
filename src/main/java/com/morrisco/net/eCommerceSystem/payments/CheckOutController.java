@@ -1,8 +1,8 @@
 package com.morrisco.net.eCommerceSystem.payments;
 
-import com.morrisco.net.eCommerceSystem.dtos.ErrorDto;
-import com.morrisco.net.eCommerceSystem.exceptions.CartEmptyException;
-import com.morrisco.net.eCommerceSystem.exceptions.CartNotFoundException;
+import com.morrisco.net.eCommerceSystem.common.ErrorDto;
+import com.morrisco.net.eCommerceSystem.carts.CartEmptyException;
+import com.morrisco.net.eCommerceSystem.carts.CartNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,5 +1,6 @@
-package com.morrisco.net.eCommerceSystem.entities;
+package com.morrisco.net.eCommerceSystem.tag;
 
+import com.morrisco.net.eCommerceSystem.users.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

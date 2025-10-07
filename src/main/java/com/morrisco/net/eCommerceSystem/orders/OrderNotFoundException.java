@@ -1,4 +1,4 @@
-package com.morrisco.net.eCommerceSystem.exceptions;
+package com.morrisco.net.eCommerceSystem.orders;
 
 public class OrderNotFoundException extends RuntimeException {
     /**

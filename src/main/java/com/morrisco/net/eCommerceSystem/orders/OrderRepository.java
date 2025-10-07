@@ -1,10 +1,8 @@
-package com.morrisco.net.eCommerceSystem.repositories;
+package com.morrisco.net.eCommerceSystem.orders;
 
-import com.morrisco.net.eCommerceSystem.entities.Order;
-import com.morrisco.net.eCommerceSystem.entities.User;
+import com.morrisco.net.eCommerceSystem.users.User;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;

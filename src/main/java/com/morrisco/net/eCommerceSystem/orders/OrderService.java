@@ -1,9 +1,6 @@
-package com.morrisco.net.eCommerceSystem.services;
+package com.morrisco.net.eCommerceSystem.orders;
 
-import com.morrisco.net.eCommerceSystem.dtos.OrderDto;
-import com.morrisco.net.eCommerceSystem.exceptions.OrderNotFoundException;
-import com.morrisco.net.eCommerceSystem.mappers.OrderMapper;
-import com.morrisco.net.eCommerceSystem.repositories.OrderRepository;
+import com.morrisco.net.eCommerceSystem.auth.AuthService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

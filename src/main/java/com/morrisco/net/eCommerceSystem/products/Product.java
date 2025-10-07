@@ -1,7 +1,7 @@
 package com.morrisco.net.eCommerceSystem.products;
 
-import com.morrisco.net.eCommerceSystem.entities.CartItem;
-import com.morrisco.net.eCommerceSystem.entities.OrderItem;
+import com.morrisco.net.eCommerceSystem.carts.CartItem;
+import com.morrisco.net.eCommerceSystem.orders.OrderItem;
 import com.morrisco.net.eCommerceSystem.users.User;
 import jakarta.persistence.*;
 import lombok.*;

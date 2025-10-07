@@ -1,12 +1,6 @@
-package com.morrisco.net.eCommerceSystem.controllers;
+package com.morrisco.net.eCommerceSystem.orders;
 
-import com.morrisco.net.eCommerceSystem.dtos.ErrorDto;
-import com.morrisco.net.eCommerceSystem.dtos.OrderDto;
-import com.morrisco.net.eCommerceSystem.entities.Order;
-import com.morrisco.net.eCommerceSystem.exceptions.CartEmptyException;
-import com.morrisco.net.eCommerceSystem.exceptions.CartNotFoundException;
-import com.morrisco.net.eCommerceSystem.exceptions.OrderNotFoundException;
-import com.morrisco.net.eCommerceSystem.services.OrderService;
+import com.morrisco.net.eCommerceSystem.common.ErrorDto;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

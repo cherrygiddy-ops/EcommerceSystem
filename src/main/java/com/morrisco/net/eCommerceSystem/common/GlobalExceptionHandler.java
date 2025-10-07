@@ -1,6 +1,5 @@
-package com.morrisco.net.eCommerceSystem.users;
+package com.morrisco.net.eCommerceSystem.common;
 
-import com.morrisco.net.eCommerceSystem.dtos.ErrorDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;

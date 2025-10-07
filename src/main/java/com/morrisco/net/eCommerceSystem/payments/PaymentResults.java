@@ -1,6 +1,5 @@
 package com.morrisco.net.eCommerceSystem.payments;
 
-import com.morrisco.net.eCommerceSystem.entities.PaymentStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

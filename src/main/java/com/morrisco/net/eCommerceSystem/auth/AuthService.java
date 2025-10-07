@@ -13,7 +13,7 @@ import java.util.Collections;
 
 @Service
 @AllArgsConstructor
-public class AuthService  implements UserDetailsService{
+public class AuthService {
     private final UserRepository userRepository;
 
     public User  getCurentLoggedUser(){
@@ -26,10 +26,5 @@ public class AuthService  implements UserDetailsService{
         return user;
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        var user = userRepository.findByEmail(email).orElseThrow(()-> new UsernameNotFoundException("user Not Found Exception"));
 
-        return new org.springframework.security.core.userdetails.User(user.getName(), user.getPassword(), Collections.emptyList());
-    }
 }

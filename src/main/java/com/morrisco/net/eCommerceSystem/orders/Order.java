@@ -1,5 +1,8 @@
-package com.morrisco.net.eCommerceSystem.entities;
+package com.morrisco.net.eCommerceSystem.orders;
 
+import com.morrisco.net.eCommerceSystem.carts.Cart;
+import com.morrisco.net.eCommerceSystem.payments.PaymentStatus;
+import com.morrisco.net.eCommerceSystem.users.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -42,7 +45,7 @@ public class Order {
     private Set<OrderItem> items = new LinkedHashSet<>();
 
 
-    public static Order createOrderFromCart(Cart cart,User customer){
+    public static Order createOrderFromCart(Cart cart, User customer){
         var order= new Order();
         order.setCustomer(customer);
         order.setStatus(PaymentStatus.PENDING);
