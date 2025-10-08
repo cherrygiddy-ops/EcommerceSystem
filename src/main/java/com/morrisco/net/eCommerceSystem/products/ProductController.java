@@ -20,7 +20,7 @@ public class ProductController {
     }
 
     @GetMapping()
-    public Iterable<ProductDto> getProducts(@RequestHeader(name = "x-auth-token",required = false) String authToken, @RequestParam(required = false,name = "categoryId") Byte categoryId){
+    public Iterable<ProductDto> getProducts( @RequestParam(required = false,name = "categoryId") Byte categoryId){
 
         if (categoryId ==null)
                return productRepository.findAll().stream()
