@@ -1,6 +1,7 @@
 package com.morrisco.net.eCommerceSystem.auth.jwt;
 
 import com.morrisco.net.eCommerceSystem.auth.AuthService;
+import com.morrisco.net.eCommerceSystem.common.SecurityRules;
 import com.morrisco.net.eCommerceSystem.users.Role;
 import com.morrisco.net.eCommerceSystem.users.UserDetailsServiceImpl;
 import lombok.AllArgsConstructor;
@@ -22,12 +23,15 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import java.util.List;
+
 @Configuration
 @EnableWebSecurity
 @AllArgsConstructor
 public class SecurityConfig {
     private final UserDetailsServiceImpl userDetailsService;
     private JwtAuthenticationFilter filter;
+    private final List<SecurityRules> securityRules;
     //security Filter chain defines how HTTP Request are Secured
     @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -40,21 +44,10 @@ public class SecurityConfig {
         http.sessionManagement(c->
                 c.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http.csrf(AbstractHttpConfigurer::disable);
-        http.authorizeHttpRequests(c->c
-                        .requestMatchers("/swagger-ui/**").permitAll()
-                        .requestMatchers("/swagger-ui.html").permitAll()
-                        .requestMatchers("/v3/api-docs/**").permitAll()
-                        .requestMatchers("/carts/**").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/admin/**").hasRole(Role.ADMIN.name())
-                        .requestMatchers(HttpMethod.POST,"/users").permitAll()
-                        .requestMatchers(HttpMethod.GET,"/products/**").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/products/**").hasRole(Role.ADMIN.name())
-                        .requestMatchers(HttpMethod.PUT,"/products/**").hasRole(Role.ADMIN.name())
-                        .requestMatchers(HttpMethod.DELETE,"/products/**").hasRole(Role.ADMIN.name())
-                        .requestMatchers(HttpMethod.POST,"/auth/login").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/auth/refresh").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/checkout/webhook").permitAll()
-                        .anyRequest().authenticated())
+        http.authorizeHttpRequests(c->{
+                      securityRules.forEach(r->r.configure(c));
+                      c.anyRequest().authenticated();
+        })
                 .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling(c->{
                         c.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED));
